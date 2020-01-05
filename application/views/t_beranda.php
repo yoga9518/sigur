@@ -8,6 +8,7 @@
     <!-- Favicon-->
     <link rel="icon" href="../../favicon.ico" type="image/x-icon">
 
+    <!-- letak css -->
     <link rel="stylesheet" href="<?php echo base_url();?>assets/leaflet.css" />
     
     <script src="<?php echo base_url('assets/js/jquery.min.js');?>"></script>
@@ -24,7 +25,8 @@
 
     <!-- Animation Css -->
     <link href="<?php echo base_url();?>assets/plugins/animate-css/animate.css" rel="stylesheet" />
-
+    <!-- Sweetalert Css -->
+    <link href="<?php echo base_url();?>assets/plugins/sweetalert/sweetalert.css" rel="stylesheet" />
      <!-- JQuery DataTable Css -->
     <link href="<?php echo base_url();?>assets/plugins/jquery-datatable/skin/bootstrap/css/dataTables.bootstrap.css" rel="stylesheet">
 
@@ -36,7 +38,8 @@
 
     <!-- JVectorMap Css -->
     <link href="<?php echo base_url();?>assets/plugins/jvectormap/jquery-jvectormap-1.2.2.css" rel="stylesheet" />
-
+    <!-- Bootstrap Select Css -->
+    <link href="<?php echo base_url();?>assets/plugins/bootstrap-select/css/bootstrap-select.css" rel="stylesheet" />
     <!-- Custom Css -->
     <link href="<?php echo base_url();?>assets/css/style.css" rel="stylesheet">
 
@@ -104,7 +107,7 @@
                     <!-- &copy; 2016 - 2017  --><a href="javascript:void(0);">SIPERU</a>.
                 </div>
                 <div class="version">
-                    <b>Version: </b> 1.0.5
+                    <b>Version: </b> 1.0.1
                 </div>
             </div>
             <!-- #Footer -->
@@ -115,6 +118,7 @@
         <!-- #END# Right Sidebar -->
     </section>
     <?php echo $halaman?>
+    
 
    
     <!-- Jquery Core Js -->
@@ -131,17 +135,7 @@
 
     <!-- Waves Effect Plugin Js -->
     <script src="<?php echo base_url();?>assets/plugins/node-waves/waves.js"></script>
-    
-    <!-- Jquery DataTable Plugin Js -->
-    <script src="<?php echo base_url();?>assets/plugins/jquery-datatable/jquery.dataTables.js"></script>
-    <script src="<?php echo base_url();?>assets/plugins/jquery-datatable/skin/bootstrap/js/dataTables.bootstrap.js"></script>
-    <script src="<?php echo base_url();?>assets/plugins/jquery-datatable/extensions/export/dataTables.buttons.min.js"></script>
-    <script src="<?php echo base_url();?>assets/plugins/jquery-datatable/extensions/export/buttons.flash.min.js"></script>
-    <script src="<?php echo base_url();?>assets/plugins/jquery-datatable/extensions/export/jszip.min.js"></script>
-    <script src="<?php echo base_url();?>assets/plugins/jquery-datatable/extensions/export/pdfmake.min.js"></script>
-    <script src="<?php echo base_url();?>assets/plugins/jquery-datatable/extensions/export/vfs_fonts.js"></script>
-    <script src="<?php echo base_url();?>assets/plugins/jquery-datatable/extensions/export/buttons.html5.min.js"></script>
-    <script src="<?php echo base_url();?>assets/plugins/jquery-datatable/extensions/export/buttons.print.min.js"></script>
+
 
     <!-- Jquery CountTo Plugin Js -->
     <script src="<?php echo base_url();?>assets/plugins/jquery-countto/jquery.countTo.js"></script>
@@ -160,16 +154,49 @@
     <script src="<?php echo base_url();?>assets/plugins/flot-charts/jquery.flot.categories.js"></script>
     <script src="<?php echo base_url();?>assets/plugins/flot-charts/jquery.flot.time.js"></script>
 
+
     <!-- Sparkline Chart Plugin Js -->
-    <script src="<?php echo base_url();?>assets/plugins/jquery-sparkline/jquery.sparkline.js"></script>
+    <script src="plugins/jquery-sparkline/jquery.sparkline.js"></script>
+    
+
+
+
+    <!-- Jquery DataTable Plugin Js -->
+    <script src="<?php echo base_url();?>assets/plugins/jquery-datatable/jquery.dataTables.js"></script>
+    <script src="<?php echo base_url();?>assets/plugins/jquery-datatable/skin/bootstrap/js/dataTables.bootstrap.js"></script>
+    <script src="<?php echo base_url();?>assets/plugins/jquery-datatable/extensions/export/dataTables.buttons.min.js"></script>
+    <script src="<?php echo base_url();?>assets/plugins/jquery-datatable/extensions/export/buttons.flash.min.js"></script>
+    <script src="<?php echo base_url();?>assets/plugins/jquery-datatable/extensions/export/jszip.min.js"></script>
+    <script src="<?php echo base_url();?>assets/plugins/jquery-datatable/extensions/export/pdfmake.min.js"></script>
+    <script src="<?php echo base_url();?>assets/plugins/jquery-datatable/extensions/export/vfs_fonts.js"></script>
+    <script src="<?php echo base_url();?>assets/plugins/jquery-datatable/extensions/export/buttons.html5.min.js"></script>
+    <script src="<?php echo base_url();?>assets/plugins/jquery-datatable/extensions/export/buttons.print.min.js"></script>
+
+    <!-- SweetAlert Plugin Js -->
+    <script src="<?php echo base_url();?>assets/plugins/sweetalert/sweetalert.min.js"></script>
+
+    <!-- Autosize Plugin Js -->
+    <script src="<?php echo base_url();?>assets/plugins/autosize/autosize.js"></script>
+
+    <!-- Moment Plugin Js -->
+    <script src="<?php echo base_url();?>assets/plugins/momentjs/moment.js"></script>
+
+    <!-- Bootstrap Material Datetime Picker Plugin Js -->
+    <script src="<?php echo base_url();?>assets/plugins/bootstrap-material-datetimepicker/js/bootstrap-material-datetimepicker.js"></script>
+
+    <!-- Bootstrap Datepicker Plugin Js -->
+    <script src="<?php echo base_url();?>assets/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
 
     <!-- Custom Js -->
     <script src="<?php echo base_url();?>assets/js/admin.js"></script>
     <script src="<?php echo base_url();?>assets/js/pages/tables/jquery-datatable.js"></script>
+    <script src="<?php echo base_url();?>assets/js/pages/forms/basic-form-elements.js"></script>
     <script src="<?php echo base_url();?>assets/js/pages/index.js"></script>
+
 
     <!-- Demo Js -->
     <script src="<?php echo base_url();?>assets/js/demo.js"></script>
+
        
 </body>
 

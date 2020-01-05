@@ -1,80 +1,96 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Creative - Bootstrap 3 Responsive Admin Template">
-  <meta name="author" content="GeeksLabs">
-  <meta name="keyword" content="Creative, Dashboard, Admin, Template, Theme, Bootstrap, Responsive, Retina, Minimal">
-  <link rel="shortcut icon" href="<?php echo base_url();?>assets/img/favicon.png">
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <title>Sign In | Bootstrap Based Admin Template - Material Design</title>
+    <!-- Favicon-->
+    <link rel="icon" href="../../favicon.ico" type="image/x-icon">
 
-  <title>Login Page 2 | Creative - Bootstrap 3 Responsive Admin Template</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&subset=latin,cyrillic-ext" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type="text/css">
 
-  <!-- Bootstrap CSS -->
-  <link href="<?php echo base_url();?>assets/css/bootstrap.min.css" rel="stylesheet">
-  <!-- bootstrap theme -->
-  <link href="<?php echo base_url();?>assets/css/bootstrap-theme.css" rel="stylesheet">
-  <!--external css-->
-  <!-- font icon -->
-  <link href="<?php echo base_url();?>assets/css/elegant-icons-style.css" rel="stylesheet" />
-  <link href="<?php echo base_url();?>assets/css/font-awesome.css" rel="stylesheet" />
-  <!-- Custom styles -->
-  <link href="<?php echo base_url();?>assets/css/style.css" rel="stylesheet">
-  <link href="<?php echo base_url();?>assets/css/style-responsive.css" rel="stylesheet" />
+    <!-- Bootstrap Core Css -->
+    <link href="<?php echo base_url();?>assets/plugins/bootstrap/css/bootstrap.css" rel="stylesheet">
 
-  <!-- HTML5 shim and Respond.js IE8 support of HTML5 -->
-  <!--[if lt IE 9]>
-    <script src="js/html5shiv.js"></script>
-    <script src="js/respond.min.js"></script>
-    <![endif]-->
+    <!-- Waves Effect Css -->
+    <link href="<?php echo base_url();?>assets/plugins/node-waves/waves.css" rel="stylesheet" />
 
-    <!-- =======================================================
-      Theme Name: NiceAdmin
-      Theme URL: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/
-      Author: BootstrapMade
-      Author URL: https://bootstrapmade.com
-    ======================================================= -->
+    <!-- Animation Css -->
+    <link href="<?php echo base_url();?>assets/plugins/animate-css/animate.css" rel="stylesheet" />
+
+    <!-- Custom Css -->
+    <link href="<?php echo base_url();?>assets/css/style.css" rel="stylesheet">
 </head>
 
-<body class="login-img1-body">
+<body class="login-page">
+    <div class="login-box">
+        
+        <div class="logo">
 
-  <div class="container">
-
-    <form class="login-form" method=POST action="<?php echo base_url();?>index.php/auth/cek_login">
-
-      <div class="login-wrap">
-
-        <p class="login-img"> <img alt="" src="<?php echo base_url();?>assets/img/logo-riau.png"></p>
-        <div class="input-group">
-          <span class="input-group-addon"><i class="icon_profile"></i></span>
-          <input type="text" id='username' name='username' class="form-control" placeholder="Username" autofocus>
+            <a href="javascript:void(0);">SIPE<b>RU</b></a>
+            <small color="red">Sistem Informasi Pesebaran Guru - Dinas Pendidikan Kota Pekanbaru</small>
         </div>
-        <div class="input-group">
-          <span class="input-group-addon"><i class="icon_key_alt"></i></span>
-          <input type="password" id='password' name='password' class="form-control" placeholder="Password">
-        </div>
-        <label class="checkbox">
-                <input type="checkbox" value="remember-me"> Remember me
-                <span class="pull-right"> <a href="#"> Forgot Password?</a></span>
-            </label>
-        <button class="btn btn-success btn-lg btn-block" type="submit">Login</button>
-      </div>
-    </form>
-    <div class="text-right">
-      <div class="credits">
-          <!--
-            All the links in the footer should remain intact.
-            You can delete the links only if you purchased the pro version.
-            Licensing information: https://bootstrapmade.com/license/
-            Purchase the pro version form: https://bootstrapmade.com/buy/?theme=NiceAdmin
-          -->
-          <!-- Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a> -->
+        <!-- <img src="<?php echo base_url();?>assets/images/logodinas.png" width="350" height="200"> -->
+        <div class="card">
+            <div class="body">
+                <form id="sign_in" method="POST" action="<?php echo base_url();?>index.php/auth/cek_login">
+                    <div class="msg"><img src="<?php echo base_url();?>assets/images/logodinas.png" width="150" height="100"></div>
+                    <div class="input-group">
+                        <span class="input-group-addon">
+                            <i class="material-icons">person</i>
+                        </span>
+                        <div class="form-line">
+                            <input type="text" class="form-control" name="username" placeholder="Username" required autofocus>
+                        </div>
+                    </div>
+                    <div class="input-group">
+                        <span class="input-group-addon">
+                            <i class="material-icons">lock</i>
+                        </span>
+                        <div class="form-line">
+                            <input type="password" class="form-control" name="password" placeholder="Password" required>
+                        </div>
+                    </div>
+                    <div class="row">
+                       <div class="col-xs-8 p-t-5">
+                            <input type="checkbox" name="rememberme" id="rememberme" class="filled-in chk-col-pink">
+                            <!--<label for="rememberme">Remember Me</label>-->
+                        </div>
+                        <div class="col-xs-4">
+                            <button class="btn btn-block bg-pink waves-effect" type="submit">SIGN IN</button>
+                        </div>
+                    </div>
+                    <!--<div class="row m-t-15 m-b--20">
+                        <div class="col-xs-6">
+                            <a href="sign-up.html">Register Now!</a>
+                        </div>
+                        <div class="col-xs-6 align-right">
+                            <a href="forgot-password.html">Forgot Password?</a>
+                        </div>
+                    </div>-->
+                </form>
+            </div>
         </div>
     </div>
-  </div>
 
+    <!-- Jquery Core Js -->
+    <script src=".<?php echo base_url();?>assets/plugins/jquery/jquery.min.js"></script>
 
+    <!-- Bootstrap Core Js -->
+    <script src="<?php echo base_url();?>assets/plugins/bootstrap/js/bootstrap.js"></script>
+
+    <!-- Waves Effect Plugin Js -->
+    <script src="<?php echo base_url();?>assets/plugins/node-waves/waves.js"></script>
+
+    <!-- Validation Plugin Js -->
+    <script src="<?php echo base_url();?>assets/plugins/jquery-validation/jquery.validate.js"></script>
+
+    <!-- Custom Js -->
+    <script src="<?php echo base_url();?>assets/js/admin.js"></script>
+    <script src="<?php echo base_url();?>assets/js/pages/examples/sign-in.js"></script>
 </body>
 
 </html>

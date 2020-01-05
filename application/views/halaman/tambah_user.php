@@ -33,7 +33,7 @@
                         <div class="body">
                             <div class="body">
                             <?php echo validation_errors(); ?>
-                            <?php echo form_open_multipart('halaman/tambah');?>
+                            <?php echo form_open_multipart('halaman/tambah_user');?>
                                 <label for="email_address">Username</label>
                                 <div class="form-group">
                                     <div class="form-line">
@@ -46,7 +46,7 @@
                                         <input type="text" name="nama_lengkap" class="form-control">
                                     </div>
                                 </div>
-                                <label for="email_address">Status</label>
+                                <!-- <label for="email_address">Status</label> -->
                                 <!-- <div class="form-group">
                                     <div class="form-line">
                                         <input name="group1" type="radio" class="with-gap" id="radio_1" checked />
@@ -72,7 +72,7 @@
                                 <label for="email_address">Gambar</label>
                                 <div class="form-group">
                                     <div class="form-line">
-                                        <img width="100" alt="" name="gambar">
+                                        <!-- <img width="100" alt="" name="gambar"> -->
                                         <input type="file" id="gambar" name="gambar" class="form-control">
                                     </div>
                                 </div>
@@ -80,7 +80,7 @@
                                 
                                 <br><br>
 
-                                <button class="btn btn-primary waves-effect" type="submit">Update</button>
+                                <button class="btn btn-primary waves-effect" type="submit">Submit</button>
                             <?php echo form_close();?>
                         </div>
                         </div>

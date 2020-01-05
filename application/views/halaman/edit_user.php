@@ -32,29 +32,30 @@
                         </div>
                         <div class="body">
                             <div class="body">
-                                <?php foreach ($hasil as $d) { 
+                                <?php foreach ($data as $d) { 
 
-                                $a = $d->id;
+                                // $a = $d->id;
                                 // $s = $d->Number;
 
                                 //echo var_dump($d);
                             
                                 ?>
-                            <form id="form_advanced_validation" action="<?php echo base_url();?>index.php/halaman/updateuser" method="POST" novalidate="novalidate">
-
-                                <label for="email_address">Username</label>
+                            <!-- <form id="form_advanced_validation" action="<?php echo base_url();?>index.php/halaman/updateuser" method="POST" novalidate="novalidate"> -->
+                            <?php echo validation_errors(); ?>
+                            <?php echo form_open_multipart(current_url());?>
+                            <label for="email_address">Username</label>
                                 <div class="form-group">
                                     <div class="form-line">
-                                        <input type="text" value="<?php echo $d->username ?>" id="username" name="username" class="form-control">
+                                        <input type="text" value="<?php echo set_value('username', $d->username)?>" id="username" name="username" class="form-control">
                                     </div>
                                 </div>
                                 <label for="email_address">Nama Lengkap</label>
                                 <div class="form-group">
                                     <div class="form-line">
-                                        <input type="text" value="<?php echo $d->nama_lengkap ?>" id="nama_lengkap" name="nama_lengkap" class="form-control">
+                                        <input type="text" value="<?php echo set_value('nama_lengkap', $d->nama_lengkap)?>" id="nama_lengkap" name="nama_lengkap" class="form-control">
                                     </div>
                                 </div>
-                                <label for="email_address">Status</label>
+                                <!-- <label for="email_address">Status</label>
                                 <div class="form-group">
                                     <div class="form-line">
                                         <input name="group1" type="radio" class="with-gap" id="radio_1" checked />
@@ -64,17 +65,17 @@
                                         <input name="group1" type="radio" class="with-gap" id="radio_3" />
                                         <label for="radio_3">Pegawai</label>
                                     </div>
-                                </div>
+                                </div> -->
                                 <label for="email_address">Alamat</label>
                                 <div class="form-group">
                                     <div class="form-line">
-                                        <textarea type="text" id="alamat" name="alamat" class="form-control"><?php echo $d->alamat ?></textarea>
+                                        <textarea type="text" id="alamat" name="alamat" class="form-control"><?php echo set_value('alamat', $d->alamat)?></textarea>
                                     </div>
                                 </div>
                                 <label for="email_address">Email</label>
                                 <div class="form-group">
                                     <div class="form-line">
-                                        <input type="email" value="<?php echo $d->email ?>" id="email" name="email" class="form-control">
+                                        <input type="email" value="<?php echo set_value('email', $d->email)?>" id="email" name="email" class="form-control">
                                     </div>
                                 </div>
                                 <label for="email_address">Gambar</label>
@@ -85,11 +86,10 @@
                                     </div>
                                 </div>
 
-                                
                                 <br><br>
 
                                 <button class="btn btn-primary waves-effect" type="submit">Update</button>
-                            </form>
+                            <?php echo form_close();?>
                         </div>
                         </div>
                     </div>

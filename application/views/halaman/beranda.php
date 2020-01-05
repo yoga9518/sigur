@@ -1,3 +1,20 @@
+<!-- Load Leaflet from CDN -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css"/>
+  <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"></script>
+
+
+  <!-- Load Esri Leaflet from CDN -->
+  <script src="https://unpkg.com/esri-leaflet@2.3.0/dist/esri-leaflet.js"></script>
+
+
+  <!-- Load Esri Leaflet Geocoder from CDN -->
+  <link rel="stylesheet" href="https://unpkg.com/esri-leaflet-geocoder@2.2.14/dist/esri-leaflet-geocoder.css">
+  <script src="https://unpkg.com/esri-leaflet-geocoder@2.2.14/dist/esri-leaflet-geocoder.js"></script>
+
+  <style>
+    body { margin:0; padding:0; }
+    #map { position: absolute; top:0; bottom:0; right:0; left:0; }
+  </style>
  <section class="content">
         <div class="container-fluid">
             <div class="block-header">
@@ -60,21 +77,91 @@
             <div class="row clearfix">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="card">
-                        <div id="mapid" style="width: 1006px; height: 400px;"></div>
+                        <div id="map" style="width: 1006px; height: 400px;"></div>
                         <script>
+  // var gray = L.layerGroup();
 
-                        var mymap = L.map('mapid').setView([0.5129, 101.4567], 12);
-                        // var mymap = L.map('mapid').setView([51.505, -0.09], 13);
-                        L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
-                            maxZoom: 18,
-                            attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
-                            '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
-                            'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-                            id: 'mapbox.streets'
-                        }).addTo(mymap);
+  // // more than one service can be grouped together and passed to the control together
+  // L.esri.basemapLayer('DarkGray').addTo(gray);
+  // L.esri.basemapLayer('GrayLabels').addTo(gray);
+  
+// var mar = L.marker([0.5129, 101.4567]).bindPopup('dsfdfdf'),
+//     mat = L.marker([0.5159, 101.4517]).bindPopup('dsfdfdf');
+// var cities = L.layerGroup();
+var cities = L.esri.featureLayer({
+    url: 'https://sampleserver6.arcgisonline.com/arcgis/rest/services/Census/MapServer/3',
+    style: function (feature) {
+      return { color: '#bada55', weight: 2 };
+    }
+  });
 
-                        
-                    </script>
+// L.marker([0.5129, 101.4567]).bindPopup('dsfdfdf').addTo(cities)
+    // L.marker([39.74, -104.99]).bindPopup('This is Denver, CO.').addTo(cities),
+    // L.marker([39.73, -104.8]).bindPopup('This is Aurora, CO.').addTo(cities),
+    // L.marker([39.77, -105.23]).bindPopup('This is Golden, CO.').addTo(cities);
+  
+
+  var renderingRule = {
+    rasterFunction: 'Hillshade',
+    rasterFunctionArguments: {
+      Azimuth: 215,
+      Altitude: 60,
+      ZFactor: 1
+    },
+    variableName: 'DEM'
+  };
+
+  var Imagery = L.layerGroup();
+  L.esri.basemapLayer('Imagery').addTo(Imagery);
+  // L.esri.basemapLayer('ImageryLabels').addTo(Imagery);
+
+  var Streets = L.layerGroup();
+  L.esri.basemapLayer('Streets').addTo(Streets);
+  // L.esri.basemapLayer('StreetsLabels').addTo(Streets);
+
+  // var map = L.map('map').setView([0.5129, 101.4567], 12);
+  var map = L.map('map',{
+    center: [0.5129, 101.4567],
+    zoom: 12,
+    layers: [Imagery, Streets]
+  });
+
+  // L.esri.basemapLayer('Imagery').addTo(map);
+
+  // L.esri.imageMapLayer({
+  //   url: 'https://sampleserver3.arcgisonline.com/ArcGIS/rest/services/Earthquakes/SanAndreasLidar/ImageServer',
+  //   renderingRule: renderingRule,
+  //   useCors: false
+  // }).addTo(map);
+
+  var baseLayers = {
+    // Grayscale: gray,
+    // MapImage: L.esri.basemapLayer('Imagery'),
+    // Streetmap: L.esri.basemapLayer('Streets')
+    MapImage: Imagery,
+    Streetmap: Streets
+  };
+
+  var overlays = {
+    "Cities": cities
+  };
+
+  // https://leafletjs.com/reference.html#control-layers
+  L.control.layers(baseLayers, overlays).addTo(map);
+  // L.control.layers(baseMaps, overlayMaps).addTo(map);
+
+  var searchControl = L.esri.Geocoding.geosearch().addTo(map);
+
+  var results = L.layerGroup().addTo(map);
+
+  searchControl.on('results', function (data) {
+    results.clearLayers();
+    for (var i = data.results.length - 1; i >= 0; i--) {
+      results.addLayer(L.marker(data.results[i].latlng));
+    }
+  });
+</script>
+
                     </div>
                 </div>
             </div>

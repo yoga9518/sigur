@@ -4,21 +4,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Halaman extends CI_Controller {
 	public function __construct() {
         parent::__construct();
-        $this->load->helper('text');
-        $this->load->helper('form','url');
-        $this->load->model('model_user');
-        $this->load->model('model_gambar');
-        $this->load->model(array('model_user'));
+        $this->load->library(array('upload','form_validation'));
+        $this->load->helper(array('form','url','text','file'));
+        $this->load->model(array('model_user','model_gambar','model_sekolah'));
     }
 	public function index()
-
 	{
 		$data['judul'] 		= 'SIGUR - Sistem Informasi Guru';
 		$data['act'] = 1;
 
-		$dat = array(
-                'data' => $this->model_user->tabel()
-            );
+		$dat['peta'] = $this->model_sekolah->view();
 
 		$data['topbar'] 	= $this->load->view('topbar', $data, true);
 		$data['menu']		= $this->load->view('menu', $data, true);
@@ -165,7 +160,7 @@ class Halaman extends CI_Controller {
             redirect('halaman/user', 'refresh');
         }
         // $data['content'] = 'halaman/user';
-        $this->load->view('halaman/user', $data);
+        $this->load->view('halaman/tambah_user', $data);
     
 
 
@@ -319,30 +314,56 @@ class Halaman extends CI_Controller {
         $data['user_info']  = $this->load->view('user_info',$data, true);
         $data['logindropdown'] = $this->load->view('tampilan_menu/logindropdown', $data, true);
         
-        $data['halaman']    = $this->load->view('halaman/tambah_user',$dat, true);
+        // $data['halaman']    = $this->load->view('halaman/tambah_user',$dat, true);
+        
         // $this->load->view('tampilan_admin', $data);
+        $this->form_validation->set_rules('username','Username','required');
+        $this->form_validation->set_rules('nama_lengkap','Nama Lengkap','required');
+        // $this->form_validation->set_rules('status','Status','required');
+        $this->form_validation->set_rules('email','Email','required');
+        $this->form_validation->set_rules('alamat','Alamat','required');
+
+        if ($this->form_validation->run() == TRUE)
+        {
+            // $this->load->view('myform');
+            $this->model_gambar->create();
+            redirect('halaman/user', 'refresh');
+        }
+        $data['halaman']    = $this->load->view('halaman/tambah_user',$dat, true);
         $this->load->view('t_beranda', $data);  
     
 
     }
-    public function edit_user($id){
+    public function edit_user($id_user){
     	$data['judul'] 		= 'Edit Data User';
 		$data['act'] = 4;
 
-		$dat = array(
-                'data' => $this->model_user->user()
-            );
-		$where = array('id' => $id);
-
-		$data['hasil'] = $this->model_user->Getdata($where,'tbl_user')->result();
-
+		// $dat = array(
+  //               'data' => $this->model_user->user()
+  //           );
+		// $where = array('id' => $id);
+		// $data['hasil'] = $this->model_user->Getdata($where,'tbl_user')->result();
 
 		$data['topbar'] 	= $this->load->view('topbar', $data, true);
 		$data['menu']		= $this->load->view('menu', $data, true);
 		$data['rightsidebar']		= $this->load->view('rightsidebar', $data, true);
 		$data['user_info']	= $this->load->view('user_info',$data, true);
 		$data['logindropdown'] = $this->load->view('tampilan_menu/logindropdown', $data, true);
-		
+
+        $this->form_validation->set_rules('username','Username','required');
+        $this->form_validation->set_rules('nama_lengkap','Nama Lengkap','required');
+        // $this->form_validation->set_rules('status','Status','required');
+        $this->form_validation->set_rules('email','Email','required');
+        $this->form_validation->set_rules('alamat','Alamat','required');
+
+        if ($this->form_validation->run() == TRUE)
+        {
+            // $this->load->view('myform');
+            $this->model_gambar->edit($id_user, $this->input->post());
+            redirect('halaman/user', 'refresh');
+            //$this->model_gambar->create();
+        }
+        $dat['data'] = $this->model_gambar->getall($id_user)->result();
 		$data['halaman']	= $this->load->view('halaman/edit_user',$dat, true);
 		// $this->load->view('tampilan_admin', $data);
 		$this->load->view('t_beranda', $data);	
