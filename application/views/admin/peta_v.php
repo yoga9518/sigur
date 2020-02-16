@@ -15,22 +15,94 @@
             <div class="row clearfix">
                 <div class="col-lg-12">
                     <div class="card">
-                        <div id="map" class="map-view"><?php echo $map['html'] ?></div>
-                        <script>
+                        <!-- <div id="map" class="map-view"><php echo $map['html'] ?></div> -->
+                        <div id="map" style="width: 100%; height: 460px;"></div>
+                    <script>
                         
-// var grayscale   = L.tileLayer(mbUrl, {id: 'mapbox.light', attribution: mbAttr}),
-//         streets  = L.tileLayer(mbUrl, {id: 'mapbox.streets',   attribution: mbAttr});
-                        // var mymap = L.map('mapid').setView([0.5129, 101.4567], 12);
-                        // // var mymap = L.map('mapid').setView([51.505, -0.09], 13);
-                        // L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
-                        //     maxZoom: 18,
-                        //     attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
-                        //     '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
-                        //     'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-                        //     id: 'mapbox.streets'
-                        // }).addTo(mymap);
+                        var map = new L.Map('map').setView([0.5129, 101.4567], 12);	//set center from first location
+                        map.addLayer(new L.TileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'));	//base layer
+                        
+                        var markersLayer = new L.LayerGroup();	//layer contain searched elements
+                        map.addLayer(markersLayer);
 
-                        // var popup = L.popup();
+                        var controlSearch = new L.Control.Search({
+                            position:'topleft',		
+                            layer: markersLayer,
+                            initial: false,
+                            zoom: 16,
+                            marker: false,
+                        });
+                        map.addControl( controlSearch );
+
+                        var data = <?php echo json_encode($marker);?>;
+                        var base_url = "<?php echo base_url('assets/images/');?>";
+                        var redIcon = L.icon({
+                            iconUrl: base_url + "marker-red-2x.png",
+                            iconSize: [25, 41]
+                            });
+                        var blueIcon = L.icon({iconUrl: base_url + "marker-icon.png"});
+                        // populate map with markers from sample data
+                        for(i in data) {
+                            var title = data[i].npsn,	//value searched
+                                lat = data[i].lat,		//position found
+                                long = data[i].long,	//position found
+                                nm_sekolah = data[i].nama_sekolah,
+                                alamat = data[i].alamat,
+                                nama = data[i].nama,
+                                mapel =data[i].mapel,
+                                nm_guru = data[i].nama,
+                                sertifikasi =data[i].Sertifikasi,
+                                sts_guru = data[i].status_guru,
+                                labor = data[i].r_lab,
+                                kelas = data[i].r_kelas,
+                                perpus = data[i].r_perpus;
+                                if (mapel == "MUATAN LOKAL") {
+                                    marker = new L.Marker(new L.latLng(lat, long), {title: nm_sekolah, icon: blueIcon} );
+                                }else if (mapel == "PJOK") {
+                                    marker = new L.Marker(new L.latLng(lat, long), {title: nm_sekolah, icon: blueIcon} );
+                                }else if (mapel == "PENDIDIKAN AGAMA ISLAM") {
+                                    marker = new L.Marker(new L.latLng(lat, long), {title: nm_sekolah, icon: blueIcon} );
+                                }else{
+                                    marker = new L.Marker(new L.latLng(lat, long), {title: nm_sekolah, icon: redIcon} );//see property searched
+                                }
+                            var customPopup = "<div class='body'>\
+                            <ul class='nav nav-tabs tab-nav-right' role='tablist'>\
+                            <li role='presentation' class='active'><a href='#home' data-toggle='tab' aria-expanded='true'>Sekolah</a></li>\
+                            <li role='presentation' class=''><a href='#profile' data-toggle='tab' aria-expanded='false'>Guru</a></li>\
+                            <li role='presentation' class=''><a href='#messages' data-toggle='tab' aria-expanded='false'>Fasilitas</a></li>\
+                            </ul>\
+                            <div class='tab-content'>\
+                                <div role='tabpanel' class='tab-pane fade active in' id='home'>\
+                                    <b>NPSN : "+ title +"</b><br>\
+                                    <b>"+ nm_sekolah +"</b>\
+                                    <p>"+ alamat +"<br>\
+                                    "+ nm_sekolah +"</p>\
+                                </div>\
+                                <div role='tabpanel' class='tab-pane fade ' id='profile'>\
+                                    <b> Mapel "+ mapel +"</b>\
+                                    <p> Nama Guru : "+ nm_guru +" <br>\
+                                    Sertifikasi : "+ sertifikasi +"<br>\
+                                    Status : "+ sts_guru +"</p>\
+                                </div>\
+                                <div role='tabpanel' class='tab-pane fade' id='messages'>\
+                                    <b>Fasilitas</b>\
+                                    <p>Ruangan Labor : "+ labor +" <br>\
+                                    Ruangan Kelas : "+ kelas +"<br>\
+                                    Ruangan Perpus :"+ perpus +" </p>\
+                                </div>\
+                            </div>\
+                        </div>";
+                        var customOptions = {
+                            'keepInView' : true,
+                            'autoClose' : true,
+                            'className' : 'custom'
+                            }
+                        // marker.bindPopup('NPSN: '+ title );
+                        marker.bindPopup(customPopup, customOptions);
+                        markersLayer.addLayer(marker);
+                    }
+                        
+                    
                     </script>
                     </div>
                 </div>
