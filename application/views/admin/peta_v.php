@@ -17,14 +17,10 @@
                     <div class="card">
                         <!-- <div id="map" class="map-view"><php echo $map['html'] ?></div> -->
                         <div id="map" style="width: 100%; height: 460px;"></div>
-                    <script>
-                        
-                        var map = new L.Map('map').setView([0.5129, 101.4567], 12);	//set center from first location
-                        map.addLayer(new L.TileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'));	//base layer
-                        
+                        <script>
+                        var map;
                         var markersLayer = new L.LayerGroup();	//layer contain searched elements
-                        map.addLayer(markersLayer);
-
+                        // map.addLayer(markersLayer);
                         var controlSearch = new L.Control.Search({
                             position:'topleft',		
                             layer: markersLayer,
@@ -32,7 +28,28 @@
                             zoom: 16,
                             marker: false,
                         });
+                        // map.addControl( controlSearch );
+                        var google = L.tileLayer('https://mt1.google.com/vt/lyrs=s&x={x}&y={y}&z={z}'),
+                            osm    = L.tileLayer('http://tile.openstreetmap.org/{z}/{x}/{y}.png');
+                            var cities = L.layerGroup();
+                        var map = new L.Map('map', {
+                            center: [0.5129, 101.4567],
+                            zoom: 12,
+                            layers: [osm, cities]
+                        });
+                        // var map = new L.Map('map').setView([0.5129, 101.4567], 12);	//set center from first location
+                        // map.addLayer(new L.TileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'));	//base layer
+                        map.addLayer(markersLayer);
                         map.addControl( controlSearch );
+
+                        var baseMaps = {
+                            "Google Maps": google,
+                            "Open Street Maps": osm
+                        };
+                        var overlayMaps = {
+                            "Cities": cities
+                        };
+                        L.control.layers(baseMaps, overlayMaps).addTo(map);
 
                         var data = <?php echo json_encode($marker);?>;
                         var base_url = "<?php echo base_url('assets/images/');?>";
@@ -57,13 +74,13 @@
                                 kelas = data[i].r_kelas,
                                 perpus = data[i].r_perpus;
                                 if (mapel == "MUATAN LOKAL") {
-                                    marker = new L.Marker(new L.latLng(lat, long), {title: nm_sekolah, icon: blueIcon} );
+                                    var marker = new L.Marker(new L.latLng(lat, long), {title: nm_sekolah, icon: blueIcon} );
                                 }else if (mapel == "PJOK") {
-                                    marker = new L.Marker(new L.latLng(lat, long), {title: nm_sekolah, icon: blueIcon} );
+                                    var marker = new L.Marker(new L.latLng(lat, long), {title: nm_sekolah, icon: blueIcon} );
                                 }else if (mapel == "PENDIDIKAN AGAMA ISLAM") {
-                                    marker = new L.Marker(new L.latLng(lat, long), {title: nm_sekolah, icon: blueIcon} );
+                                    var marker = new L.Marker(new L.latLng(lat, long), {title: nm_sekolah, icon: blueIcon} );
                                 }else{
-                                    marker = new L.Marker(new L.latLng(lat, long), {title: nm_sekolah, icon: redIcon} );//see property searched
+                                    var marker = new L.Marker(new L.latLng(lat, long), {title: nm_sekolah, icon: redIcon} );//see property searched
                                 }
                             var customPopup = "<div class='body'>\
                             <ul class='nav nav-tabs tab-nav-right' role='tablist'>\
@@ -97,12 +114,14 @@
                             'autoClose' : true,
                             'className' : 'custom'
                             }
-                        // marker.bindPopup('NPSN: '+ title );
                         marker.bindPopup(customPopup, customOptions);
                         markersLayer.addLayer(marker);
-                    }
+                        cities.addLayer(marker);
                         
-                    
+                       
+                        
+                        
+                    }
                     </script>
                     </div>
                 </div>
