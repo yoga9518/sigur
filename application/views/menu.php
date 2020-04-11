@@ -13,6 +13,12 @@
                             <span>Peta</span>
                         </a>
                     </li>
+                    <li <?php if($act==7){?>class="active"<?php } ?>>
+                        <a href="<?php echo base_url();?>index.php/admin/permohonan">
+                            <i class="material-icons">assignment</i>
+                            <span>Permohonan</span>
+                        </a>
+                    </li>
                     <li <?php if($act==5){?>class="active"<?php } ?>>
                         <a href="<?php echo base_url();?>index.php/admin/guru">
                             <i class="material-icons">person_pin</i>

@@ -60,19 +60,20 @@
                         var blueIcon = L.icon({iconUrl: base_url + "marker-icon.png"});
                         // populate map with markers from sample data
                         for(i in data) {
-                            var title = data[i].npsn,	//value searched
-                                lat = data[i].lat,		//position found
-                                long = data[i].long,	//position found
-                                nm_sekolah = data[i].nama_sekolah,
-                                alamat = data[i].alamat,
-                                nama = data[i].nama,
-                                mapel =data[i].mapel,
-                                nm_guru = data[i].nama,
-                                sertifikasi =data[i].Sertifikasi,
-                                sts_guru = data[i].status_guru,
-                                labor = data[i].r_lab,
-                                kelas = data[i].r_kelas,
-                                perpus = data[i].r_perpus;
+                            var title       = data[i].npsn,	//value searched
+                                lat         = data[i].lat,		//position found
+                                long        = data[i].long,	//position found
+                                nm_sekolah  = data[i].nama_sekolah,
+                                alamat      = data[i].alamat,
+                                nama        = data[i].nama,
+                                mapel       = data[i].mapel,
+                                nm_guru     = data[i].nama,
+                                sertifikasi = data[i].Sertifikasi,
+                                sts_guru    = data[i].status_guru,
+                                labor       = data[i].r_lab,
+                                kelas       = data[i].r_kelas,
+                                perpus      = data[i].r_perpus;
+                                nama_file   = data[i].nama_file;
                                 if (mapel == "MUATAN LOKAL") {
                                     var marker = new L.Marker(new L.latLng(lat, long), {title: nm_sekolah, icon: blueIcon} );
                                 }else if (mapel == "PJOK") {
@@ -90,22 +91,59 @@
                             </ul>\
                             <div class='tab-content'>\
                                 <div role='tabpanel' class='tab-pane fade active in' id='home'>\
-                                    <b>NPSN : "+ title +"</b><br>\
-                                    <b>"+ nm_sekolah +"</b>\
-                                    <p>"+ alamat +"<br>\
-                                    "+ nm_sekolah +"</p>\
+                                <table>\
+                                    <tr>\
+                                        <td><b>NPSN</b></td>\
+                                        <td>: "+ title +"</td>\
+                                    </tr>\
+                                    <tr>\
+                                        <td><b>Sekolah</b></td>\
+                                        <td> : "+nm_sekolah +"</td>\
+                                    </tr>\
+                                    <tr>\
+                                        <td><b>Alamat</b></td>\
+                                        <td> : "+alamat +"</td>\
+                                    </tr>\
+                                </table>\
+                                <div>\
+                                    <img src='<?php echo base_url('gambar/');?>"+nama_file+"' width='100' name='gambar'>\
+                                </div>\
                                 </div>\
                                 <div role='tabpanel' class='tab-pane fade ' id='profile'>\
-                                    <b> Mapel "+ mapel +"</b>\
-                                    <p> Nama Guru : "+ nm_guru +" <br>\
-                                    Sertifikasi : "+ sertifikasi +"<br>\
-                                    Status : "+ sts_guru +"</p>\
+                                <table>\
+                                    <tr>\
+                                        <td><b>Mapel</b></td>\
+                                        <td>: "+ mapel +"</td>\
+                                    </tr>\
+                                    <tr>\
+                                        <td><b>Nama Guru</b></td>\
+                                        <td> : "+nm_guru +"</td>\
+                                    </tr>\
+                                    <tr>\
+                                        <td><b>Sertifikasi</b></td>\
+                                        <td> : "+sertifikasi +"</td>\
+                                    </tr>\
+                                    <tr>\
+                                        <td><b>Status Guru</b></td>\
+                                        <td> : "+sts_guru +"</td>\
+                                    </tr>\
+                                </table>\
                                 </div>\
                                 <div role='tabpanel' class='tab-pane fade' id='messages'>\
-                                    <b>Fasilitas</b>\
-                                    <p>Ruangan Labor : "+ labor +" <br>\
-                                    Ruangan Kelas : "+ kelas +"<br>\
-                                    Ruangan Perpus :"+ perpus +" </p>\
+                                <table>\
+                                    <tr>\
+                                        <td><b>Ruangan Lab</b></td>\
+                                        <td>: "+ labor +"</td>\
+                                    </tr>\
+                                    <tr>\
+                                        <td><b>Ruangan Kelas</b></td>\
+                                        <td>: "+ kelas +"</td>\
+                                    </tr>\
+                                    <tr>\
+                                        <td><b>Ruangan Perpus</b></td>\
+                                        <td>: "+ perpus +"</td>\
+                                    </tr>\
+                                </table>\
                                 </div>\
                             </div>\
                         </div>";

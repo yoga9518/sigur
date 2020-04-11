@@ -49,17 +49,9 @@
                             </h2>
                             <ul class="header-dropdown m-r--5">
                                 <li class="dropdown">
-                                    <a href="<?php echo base_url()?>index.php/admin/sekolah/tambah">
-                                        <button data-toggle="modal" data-target="#add-data"  type="button" class="btn bg-indigo btn-xs waves-effect"><i class="material-icons">add</i></button>
-                                    </a>
                                     <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                                         <i class="material-icons">more_vert</i>
                                     </a>
-                                    <ul class="dropdown-menu pull-right">
-                                        <li><a href="javascript:void(0);">Action</a></li>
-                                        <li><a href="javascript:void(0);">Another action</a></li>
-                                        <li><a href="javascript:void(0);">Something else here</a></li>
-                                    </ul>
                                 </li>
                             </ul>
                         </div>
@@ -69,32 +61,28 @@
                                     <thead>
                                         <tr>
                                         	<th>No</th>
-                                        	<th>NPSN</th>
-                                        	<th>Nama Sekolah</th>
-                                        	<th>Alamat</th>
-                                        	<th>Lat</th>
-                                        	<th>Long</th>
-                                            <th>Foto</th>
+                                        	<th>NIP</th>
+                                        	<th>Nama Guru</th>
+                                        	<th>Asal Sekolah</th>
+                                        	<th>Tujuan Sekolah</th>
+                                        	<th>Mapel</th>
                                         	<th>Aksi</th>
                                         </tr>
                                     </thead>
                                     <?php $no = 0;
                                     if( ! empty($tabel)){ // Jika data pada database tidak sama dengan empty (alias ada datanya)
                                     	foreach($tabel as $data){
+                                            // echo var_dump($data);
     										echo "<tr>";
     										echo "<td>".++$no."</td>";
-    										echo "<td>".$data->npsn."</td>";
-    										echo "<td>".$data->nama_sekolah."</td>";
-    										echo "<td>".substr($data->alamat, 0, 15)."</td>";
-    										echo "<td>".$data->lat."</td>";
-    										echo "<td>".$data->long."</td>";
-                                            echo "<td><img src='".base_url("gambar/".$data->nama_file)."' width='50' height='50'></td>";
+    										echo "<td>".$data->nip."</td>";
+    										echo "<td>".$data->nama_guru."</td>";
+    										echo "<td>".$data->asal_sekolah."</td>";
+    										echo "<td>".$data->tujuan_sekolah."</td>";
+    										echo "<td>".$data->mapel."</td>";
 
-    										echo "<td><a href='".site_url("admin/sekolah/edit/".$data->id_sekolah)."'> "
+    										echo "<td><a href='".site_url("admin/fasilitas/edit/".$data->nip)."'> "
     										."<button type='submit' class='btn bg-cyan btn-xs waves-effect' data-type='confirm'><i class='material-icons'>edit</i></button>"
-    										."</a> 
-    										<a class='hapus-link' href='".site_url("admin/sekolah/delete/".$data->id_sekolah)."'> "
-    										."<button onclick='return confirm('Yakin data ingin di hapus??')' type='submit' class='btn btn-danger btn-xs waves-effect' data-type='confirm'><i class='material-icons'>delete</i></button>"
     										."</a>";
     										echo "</tr>";
     									}

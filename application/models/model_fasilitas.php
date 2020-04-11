@@ -35,4 +35,7 @@ class Model_fasilitas extends CI_Model {
       Data Berhasil di Perbaharui !!! <button type="button" class="close" data-dismiss="alert" aria-label="Close">
       <span aria-hidden="true">×</span></button></div>');
   }
+  public function permohonan(){
+    return $this->db->get('tbl_permohonan')->result();
+  }
 }
