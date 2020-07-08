@@ -22,19 +22,17 @@ class Permohonan extends CI_Controller {
             $data['topbar']         = $this->load->view('topbar', $data, true);
             $data['menu']           = $this->load->view('menu', $data, true);
             $data['rightsidebar']   = $this->load->view('rightsidebar', $data, true);
-            $data['user_info']      = $this->load->view('user_info',$data, true);
+            $data['user_info']      = $this->load->view('user_info', $data, true);
             $data['logindropdown']  = $this->load->view('tampilan_menu/logindropdown', $data, true);
 
-            $data['halaman']        = $this->load->view('admin/permohonan_v',$dat, true);
+            $data['halaman']        = $this->load->view('admin/permohonan_v', $dat, true);
             // $this->load->view('tampilan_admin', $data);
             $this->load->view('t_beranda', $data);
-        }else{
+        } else {
             echo "<script>alert('Maaf anda tidak berhak mengakses halaman ini');history.go(-1);</script>";
             // redirect("login");
         }
-	}
-
-
+    }
 
     public function detail($id_permohonan){
         $cek = $this->session->userdata('logged_in');
@@ -46,31 +44,26 @@ class Permohonan extends CI_Controller {
             $data['topbar']         = $this->load->view('topbar', $data, true);
             $data['menu']           = $this->load->view('menu', $data, true);
             $data['rightsidebar']   = $this->load->view('rightsidebar', $data, true);
-            $data['user_info']      = $this->load->view('user_info',$data, true);
+            $data['user_info']      = $this->load->view('user_info', $data, true);
             $data['logindropdown']  = $this->load->view('tampilan_menu/logindropdown', $data, true);
 
-            $this->form_validation->set_rules('nip','NIP','required');
-            $this->form_validation->set_rules('nama_guru','Nama Guru','required');
-            $this->form_validation->set_rules('asal_sekolah','Asal Sekolah','required');
-            $this->form_validation->set_rules('tujuan_sekolah','Tujuan Sekolah','required');
-            $this->form_validation->set_rules('mapel','Mapel','required');
-            $this->form_validation->set_rules('status','Status','required');
+            $this->form_validation->set_rules('nip', 'NIP', 'required');
+            $this->form_validation->set_rules('nama_guru', 'Nama Guru', 'required');
+            $this->form_validation->set_rules('asal_sekolah', 'Asal Sekolah', 'required');
+            $this->form_validation->set_rules('tujuan_sekolah', 'Tujuan Sekolah', 'required');
+            $this->form_validation->set_rules('mapel', 'Mapel', 'required');
+            $this->form_validation->set_rules('status', 'Status', 'required');
 
 
-            if ($this->form_validation->run() == TRUE)
-            {
+            if ($this->form_validation->run() == TRUE) {
                 $this->model_fasilitas->detail($id_permohonan, $this->input->post());
                 redirect('admin/permohonan', 'refresh');
             }
-            $dat['data']        = $this->model_fasilitas->getall($id_permohonan)->result();
-            $data['halaman']    = $this->load->view('admin/detail',$dat, true);
-        // $this->load->view('tampilan_admin', $data);
-            $this->load->view('t_beranda', $data);
+            $data['dat'] = $this->model_fasilitas->getData($id_permohonan);
+            $this->load->view('header', $data);
+            $this->load->view('admin/detail', $data);
+            $this->load->view('footer');
         }
     }
-        
-        
-
-
-
+}
 }

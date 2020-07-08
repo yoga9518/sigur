@@ -1,8 +1,7 @@
-<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
-class Model_permohonan extends CI_Model {
-// Fungsi untuk menampilkan semua data user
- 
- 
+<?php if (!defined('BASEPATH')) exit('No direct script access allowed');
+class Model_permohonan extends CI_Model
+{
+  // Fungsi untuk menampilkan semua data user
   public function permohonan($id_permohonan, $input){
     $object = array(
       'nip'             => $input['nip'],
@@ -10,8 +9,8 @@ class Model_permohonan extends CI_Model {
       'asal_sekolah'    => $input['asal_sekolah'],
       'tujuan_sekolah'  => $input['tujuan_sekolah'],
       'mapel'           => $input['mapel'],
-      );
-    
+    );
+
     $this->db->where('id_permohonan', $id_permohonan);
     $this->db->update('tbl_permohonan', $object);
     $this->session->set_flashdata('pesan', '<div class="alert bg-yellow alert-dismissible" role="alert">
@@ -19,3 +18,6 @@ class Model_permohonan extends CI_Model {
       <span aria-hidden="true">×</span></button></div>');
   }
 }
+
+}
+
