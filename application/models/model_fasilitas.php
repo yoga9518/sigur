@@ -38,12 +38,11 @@ class Model_fasilitas extends CI_Model
       Data Berhasil di Perbaharui !!! <button type="button" class="close" data-dismiss="alert" aria-label="Close">
       <span aria-hidden="true">×</span></button></div>');
   }
-  public function permohonan()
-  {
+  public function permohonan(){
     return $this->db->get('tbl_permohonan')->result();
   }
-  public function detail($id_permohonan, $input)
-  {
+  public function detail($id_permohonan, $input){
+
     $object = array(
       'nip'             => $input['nip'],
       'nama_guru'       => $input['nama_guru'],
@@ -51,8 +50,8 @@ class Model_fasilitas extends CI_Model
       'tujuan_sekolah'  => $input['tujuan_sekolah'],
       'mapel'           => $input['mapel'],
       'status'          => $input['status'],
-
     );
+
     $this->db->where('id_permohonan', $id_permohonan);
     $this->db->update('tbl_permohonan', $object);
     $this->session->set_flashdata('pesan', '<div class="alert bg-yellow alert-dismissible" role="alert">
@@ -67,3 +66,5 @@ class Model_fasilitas extends CI_Model
     // return $this->db->get('tbl_permohonan');
   }
 }
+}
+

@@ -77,4 +77,3 @@
  <?php } else {
         redirect("login");
     }
-    ?>

@@ -2,10 +2,7 @@
 class Model_permohonan extends CI_Model
 {
   // Fungsi untuk menampilkan semua data user
-
-
-  public function permohonan($id_permohonan, $input)
-  {
+  public function permohonan($id_permohonan, $input){
     $object = array(
       'nip'             => $input['nip'],
       'nama_guru'       => $input['nama_guru'],
@@ -21,3 +18,6 @@ class Model_permohonan extends CI_Model
       <span aria-hidden="true">×</span></button></div>');
   }
 }
+
+}
+

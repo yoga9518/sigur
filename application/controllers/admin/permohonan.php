@@ -1,17 +1,15 @@
 <?php
-defined('BASEPATH') or exit('No direct script access allowed');
+defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Permohonan extends CI_Controller
-{
-    public function __construct()
-    {
+class Permohonan extends CI_Controller {
+	public function __construct() {
         parent::__construct();
-        $this->load->library(array('upload', 'form_validation'));
-        $this->load->helper(array('form', 'url', 'text', 'file'));
+        $this->load->library(array('upload','form_validation'));
+        $this->load->helper(array('form','url','text','file'));
         $this->load->model(array('model_fasilitas'));
     }
-    public function index()
-    {
+	public function index()
+	{
         $cek = $this->session->userdata('logged_in');
         $status = $this->session->userdata('status');
         if (!empty($cek) && $status = "admin") {
@@ -36,10 +34,7 @@ class Permohonan extends CI_Controller
         }
     }
 
-
-
-    public function detail($id_permohonan)
-    {
+    public function detail($id_permohonan){
         $cek = $this->session->userdata('logged_in');
         $status = $this->session->userdata('status');
         if (!empty($cek) && $status = "admin") {
@@ -70,4 +65,5 @@ class Permohonan extends CI_Controller
             $this->load->view('footer');
         }
     }
+}
 }
