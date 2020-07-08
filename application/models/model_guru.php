@@ -78,23 +78,5 @@ class Model_guru extends CI_Model {
     $this->db->join('tbl_guru', 'tbl_sekolah.npsn = tbl_guru.npsn');
     return $this->db->get();
   }
-  public function permohonan($id_permohonan, $input){
-    $object = array(
-      'nip'             => $input['nip'],
-      'nama'            => $input['nama'],
-      'jk'              => $input['gender'],
-      'tanggal_lahir'   => $input['ttl'],
-      'mapel'           => $input['mapel'],
-      'pendidikan'      => $input['pend'],
-      'status_guru'     => $input['stguru'],
-      // 'asal_sekolah'    => $input['sekolah'],
-      'npsn'            => $input['npsn'],
-      );
-    $this->db->where('tbl_permohonan', $id_permohonan);
-    $this->db->update('tbl_permohonan', $object);
-    $this->session->set_flashdata('pesan', '<div class="alert bg-yellow alert-dismissible" role="alert">
-      Data Berhasil di Perbaharui !!! <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-      <span aria-hidden="true">×</span></button></div>');
-  }
 
 }

@@ -74,7 +74,6 @@
                                         	<th>Alamat</th>
                                         	<th>Lat</th>
                                         	<th>Long</th>
-                                            <th>Foto</th>
                                         	<th>Aksi</th>
                                         </tr>
                                     </thead>
@@ -88,7 +87,6 @@
     										echo "<td>".substr($data->alamat, 0, 15)."</td>";
     										echo "<td>".$data->lat."</td>";
     										echo "<td>".$data->long."</td>";
-                                            echo "<td><img src='".base_url("gambar/".$data->nama_file)."' width='50' height='50'></td>";
 
     										echo "<td><a href='".site_url("admin/sekolah/edit/".$data->id_sekolah)."'> "
     										."<button type='submit' class='btn bg-cyan btn-xs waves-effect' data-type='confirm'><i class='material-icons'>edit</i></button>"

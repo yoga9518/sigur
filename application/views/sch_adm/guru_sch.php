@@ -37,6 +37,8 @@
             });
         });
     </script>
+            
+        
             <!-- Example -->
             <div class="row clearfix">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -50,6 +52,14 @@
                                     <a href="<?php echo base_url();?>index.php/admin/guru/tambah">
                                         <button type="button" class="btn bg-indigo btn-xs waves-effect"><i class="material-icons">add</i></button>
                                     </a>
+                                    <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                        <i class="material-icons">more_vert</i>
+                                    </a>
+                                    <ul class="dropdown-menu pull-right">
+                                        <li><a href="javascript:void(0);">Action</a></li>
+                                        <li><a href="javascript:void(0);">Another action</a></li>
+                                        <li><a href="javascript:void(0);">Something else here</a></li>
+                                    </ul>
                                 </li>
                             </ul>
                         </div>
@@ -57,18 +67,18 @@
                             <div class="table-responsive">
                                     <table class="table table-bordered table-striped table-hover dataTable js-exportable">
                                     <thead>
-                                        <tr>
-                                            <th>No</th>
-                                            <th>Nama</th>
-                                            <th>TTL</th>
-                                            <th>JK</th>
-                                            <th>Mapel</th>
-                                            <th>Pendidikan</th>
-                                            <th>Status Guru</th>
-                                            <th>Sekolah</th>
-                                            <th>Aksi</th>
-                                        </tr>
-                                    </thead>
+<tr>
+    <th>No</th>
+  <th>Nama</th>
+  <th>TTL</th>
+  <th>JK</th>
+  <th>Mapel</th>
+  <th>Pendidikan</th>
+  <th>Status Guru</th>
+  <th>Sekolah</th>
+  <th>Aksi</th>
+</tr>
+</thead>
 <?php $no = 0;
 if( ! empty($tabel)){ // Jika data pada database tidak sama dengan empty (alias ada datanya)
   foreach($tabel as $data){

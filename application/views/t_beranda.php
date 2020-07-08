@@ -5,10 +5,11 @@
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <title>SIGUR - Sistem Informasi Guru</title>
+    <!-- Favicon-->
+    <link rel="icon" href="../../favicon.ico" type="image/x-icon">
 
     <!-- letak css -->
     <link rel="stylesheet" href="<?php echo base_url();?>assets/leaflet.css" />
-    <link rel="stylesheet" href="<?php echo base_url();?>assets/leaflet/leaflet-search.css" />
     
     <script src="<?php echo base_url('assets/js/jquery.min.js');?>"></script>
 
@@ -47,10 +48,12 @@
 
 
     <!-- Favicon-->
-    <link rel="icon" href="<?php echo base_url();?>gambar/logo.png" type="image/x-icon">
+    <link rel="icon" href="<?php echo base_url();?>assets/favicon.ico" type="image/x-icon">
 
     <script src="<?php echo base_url();?>assets/leaflet.js" ></script>
-    <script src="<?php echo base_url();?>assets/leaflet/leaflet-search.js" ></script>
+
+    <?php if(isset($map['js'])) echo $map['js']; ?>
+
 
 </head>
 
@@ -110,6 +113,9 @@
             <!-- #Footer -->
         </aside>
         <!-- #END# Left Sidebar -->
+        <!-- Right Sidebar -->
+        <?php echo $rightsidebar?>
+        <!-- #END# Right Sidebar -->
     </section>
     <?php echo $halaman?>
     
@@ -140,6 +146,20 @@
 
     <!-- ChartJs -->
     <script src="<?php echo base_url();?>assets/plugins/chartjs/Chart.bundle.js"></script>
+
+    <!-- Flot Charts Plugin Js -->
+    <script src="<?php echo base_url();?>assets/plugins/flot-charts/jquery.flot.js"></script>
+    <script src="<?php echo base_url();?>assets/plugins/flot-charts/jquery.flot.resize.js"></script>
+    <script src="<?php echo base_url();?>assets/plugins/flot-charts/jquery.flot.pie.js"></script>
+    <script src="<?php echo base_url();?>assets/plugins/flot-charts/jquery.flot.categories.js"></script>
+    <script src="<?php echo base_url();?>assets/plugins/flot-charts/jquery.flot.time.js"></script>
+
+
+    <!-- Sparkline Chart Plugin Js -->
+    <script src="plugins/jquery-sparkline/jquery.sparkline.js"></script>
+    
+
+
 
     <!-- Jquery DataTable Plugin Js -->
     <script src="<?php echo base_url();?>assets/plugins/jquery-datatable/jquery.dataTables.js"></script>

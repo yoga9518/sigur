@@ -17,8 +17,8 @@ class Model_gambar extends CI_Model {
 
     $config['upload_path']    = './gambar/';
     $config['allowed_types']  = 'gif|jpg|png';
-    $config['max_width']      = '2024';
-    $config['max_height']     = '2024';
+    $config['max_width']      = '1024';
+    $config['max_height']     = '1024';
     
     // $this->load->library('upload', $config);
     $this->upload->initialize($config);
@@ -71,8 +71,8 @@ class Model_gambar extends CI_Model {
 
     $config['upload_path']    = './gambar/';
     $config['allowed_types']  = 'gif|jpg|png';
-    $config['max_width']      = '2024';
-    $config['max_height']     = '2024';
+    $config['max_width']      = '1024';
+    $config['max_height']     = '1024';
     
     $this->upload->initialize($config);
 

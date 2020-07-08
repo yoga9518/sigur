@@ -42,13 +42,13 @@
                                 <div class="form-group">
                                     <div class="form-line">
                                         <!-- <input type="number" name="nip" class="form-control" placeholder="NIP"> -->
-                                        <input type="number" name="nip" class="form-control" value="<?php echo $this->session->userdata('username'); ?>" disabled>
+                                        <input type="number" name="nip" class="form-control">
                                     </div>
                                 </div>
                                 <label for="email_address">Nama Lengkap</label>
                                 <div class="form-group">
                                     <div class="form-line">
-                                        <input type="text" name="nama" class="form-control" value="<?php echo $this->session->userdata('nama_lengkap'); ?>" disabled>
+                                        <input type="text" name="nama" class="form-control">
                                     </div>
                                 </div>
                                 <label for="email_address">Asal Sekolah</label>

@@ -64,9 +64,9 @@ class Fasilitas extends CI_Controller {
                 // 'data'      => $this->model_guru->getall($id_guru)->result(),
                 );   
 
-            $dat['data']        = $this->model_fasilitas->getall($id_sekolah)->result();
+            $dat['data'] = $this->model_fasilitas->getall($id_sekolah)->result();
             $data['halaman']    = $this->load->view('admin/fasilitas_edit',$dat, true);
-            // $this->load->view('tampilan_admin', $data);
+        // $this->load->view('tampilan_admin', $data);
             $this->load->view('t_beranda', $data);
         }
     }
