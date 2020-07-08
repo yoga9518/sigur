@@ -74,6 +74,14 @@
                                         </div>
                                     </div>
                                 </div>
+                                <div class="col-sm-12">
+                                    <div class="form-group">                
+                                        <div class="form-line">
+                                            <img src="<?php echo base_url()?>gambar/<?php echo $d->nama_file ?>" width="100" alt="" name="gambar">
+                                            <input type="file" id="gambar" name="gambar" class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
                                 <button class="btn btn-primary waves-effect" type="submit">Update</button>
                                 <a class="btn btn-default waves-effect" href="<?php echo base_url()?>index.php/admin/sekolah">Kembali</a>
                             <?php echo form_close();?>

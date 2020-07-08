@@ -135,17 +135,11 @@ class User extends CI_Controller {
             $data['judul']      = 'Edit Data User';
             $data['act'] = 4;
 
-        // $dat = array(
-  //               'data' => $this->model_user->user()
-  //           );
-        // $where = array('id' => $id);
-        // $data['hasil'] = $this->model_user->Getdata($where,'tbl_user')->result();
-
-            $data['topbar']     = $this->load->view('topbar', $data, true);
-            $data['menu']       = $this->load->view('menu', $data, true);
-            $data['rightsidebar']       = $this->load->view('rightsidebar', $data, true);
-            $data['user_info']  = $this->load->view('user_info',$data, true);
-            $data['logindropdown'] = $this->load->view('tampilan_menu/logindropdown', $data, true);
+            $data['topbar']         = $this->load->view('topbar', $data, true);
+            $data['menu']           = $this->load->view('menu', $data, true);
+            $data['rightsidebar']   = $this->load->view('rightsidebar', $data, true);
+            $data['user_info']      = $this->load->view('user_info',$data, true);
+            $data['logindropdown']  = $this->load->view('tampilan_menu/logindropdown', $data, true);
 
             $this->form_validation->set_rules('username','Username','required');
             $this->form_validation->set_rules('nama_lengkap','Nama Lengkap','required');
