@@ -141,11 +141,19 @@ class User extends CI_Controller {
         // $where = array('id' => $id);
         // $data['hasil'] = $this->model_user->Getdata($where,'tbl_user')->result();
 
+<<<<<<< HEAD
             $data['topbar']     = $this->load->view('topbar', $data, true);
             $data['menu']       = $this->load->view('menu', $data, true);
             $data['rightsidebar']       = $this->load->view('rightsidebar', $data, true);
             $data['user_info']  = $this->load->view('user_info',$data, true);
             $data['logindropdown'] = $this->load->view('tampilan_menu/logindropdown', $data, true);
+=======
+            $data['topbar']         = $this->load->view('topbar', $data, true);
+            $data['menu']           = $this->load->view('menu', $data, true);
+            $data['rightsidebar']   = $this->load->view('rightsidebar', $data, true);
+            $data['user_info']      = $this->load->view('user_info',$data, true);
+            $data['logindropdown']  = $this->load->view('tampilan_menu/logindropdown', $data, true);
+>>>>>>> parent of b4c0ba2... permohonan
 
             $this->form_validation->set_rules('username','Username','required');
             $this->form_validation->set_rules('nama_lengkap','Nama Lengkap','required');

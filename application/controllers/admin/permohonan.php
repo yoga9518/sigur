@@ -24,14 +24,20 @@ class Permohonan extends CI_Controller {
             $data['rightsidebar']   = $this->load->view('rightsidebar', $data, true);
             $data['user_info']      = $this->load->view('user_info', $data, true);
             $data['logindropdown']  = $this->load->view('tampilan_menu/logindropdown', $data, true);
+<<<<<<< HEAD
 
             $data['halaman']        = $this->load->view('admin/permohonan_v', $dat, true);
+=======
+        
+            $data['halaman']        = $this->load->view('admin/permohonan_v',$dat, true);
+>>>>>>> parent of b4c0ba2... permohonan
             // $this->load->view('tampilan_admin', $data);
             $this->load->view('t_beranda', $data);
         } else {
             echo "<script>alert('Maaf anda tidak berhak mengakses halaman ini');history.go(-1);</script>";
             // redirect("login");
         }
+<<<<<<< HEAD
     }
 
     public function detail($id_permohonan){
@@ -67,3 +73,8 @@ class Permohonan extends CI_Controller {
     }
 }
 }
+=======
+	}
+	
+}
+>>>>>>> parent of b4c0ba2... permohonan

@@ -122,6 +122,7 @@ class Model_user extends CI_Model {
   public function peta()
   {
     $query = $this->db->query("SELECT tbl_guru.mapel,tbl_sekolah.lat,tbl_sekolah.long, tbl_sekolah.npsn,tbl_sekolah.nama_sekolah,tbl_sekolah.alamat,tbl_guru.nama,tbl_guru.Sertifikasi,tbl_guru.status_guru, tbl_fasilitas.r_kelas,tbl_fasilitas.r_lab,tbl_fasilitas.r_perpus from tbl_sekolah JOIN tbl_guru on tbl_sekolah.npsn = tbl_guru.npsn join tbl_fasilitas ON tbl_sekolah.npsn = tbl_fasilitas.npsn");
+<<<<<<< HEAD
   return $query;
 
  /*   $this->db->select('*');
@@ -143,6 +144,9 @@ class Model_user extends CI_Model {
     
         // return $query->result_array();
     // return $this->db->get('tbl_sekolah');
+=======
+    return $query;
+>>>>>>> parent of b4c0ba2... permohonan
   }
   function status() {
         $sql   = "SELECT * FROM tbl_status";
@@ -154,4 +158,12 @@ class Model_user extends CI_Model {
     function sch(){
     return $this->db->get('tbl_sekolah')->result_array();
   }
+<<<<<<< HEAD
+=======
+  public function maps()
+  {
+    $query = $this->db->query("SELECT tbl_guru.mapel,tbl_sekolah.lat,tbl_sekolah.long, tbl_sekolah.npsn,tbl_sekolah.nama_sekolah,tbl_sekolah.alamat,tbl_guru.nama,tbl_guru.Sertifikasi,tbl_guru.status_guru, tbl_fasilitas.r_kelas,tbl_fasilitas.r_lab,tbl_fasilitas.r_perpus from tbl_sekolah JOIN tbl_guru on tbl_sekolah.npsn = tbl_guru.npsn join tbl_fasilitas ON tbl_sekolah.npsn = tbl_fasilitas.npsn");
+    return $query;
+  }
+>>>>>>> parent of b4c0ba2... permohonan
 }

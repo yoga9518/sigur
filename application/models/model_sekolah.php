@@ -17,6 +17,28 @@ class Model_sekolah extends CI_Model {
     $this->session->set_flashdata('pesan', '<div class="alert bg-green alert-dismissible" role="alert">Data Berhasil di Tambah !!!<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button></div>');
   }
   public function edit($id_sekolah, $input){
+<<<<<<< HEAD
+=======
+    $_gambar = $this->getall($id_sekolah)->row();
+
+    $config['upload_path']    = './gambar/';
+    $config['allowed_types']  = 'gif|jpg|png';
+    $config['max_size']       = '1024';
+    $config['max_width']      = '1024';
+    $config['max_height']     = '1024';
+    
+    $this->upload->initialize($config);
+
+      if (!$this->upload->do_upload('gambar'))
+      {
+        $photo = $_gambar->nama_file; 
+        $this->session->set_flashdata('pesan', $this->upload->display_errors());
+      } else{
+        $photo = $this->upload->data('file_name');
+        // $photo = $this->upload->file_name;
+      }
+
+>>>>>>> parent of b4c0ba2... permohonan
     $object = array(
       'npsn'          => $input['npsn'],
       'nama_sekolah'  => $input['namasekolah'],
