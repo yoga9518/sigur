@@ -121,7 +121,7 @@ class Model_user extends CI_Model {
   }
   public function peta()
   {
-    $query = $this->db->query("SELECT tbl_guru.mapel,tbl_sekolah.lat,tbl_sekolah.long, tbl_sekolah.npsn,tbl_sekolah.nama_sekolah,tbl_sekolah.alamat,tbl_guru.nama,tbl_guru.Sertifikasi,tbl_guru.status_guru, tbl_fasilitas.r_kelas,tbl_fasilitas.r_lab,tbl_fasilitas.r_perpus from tbl_sekolah JOIN tbl_guru on tbl_sekolah.npsn = tbl_guru.npsn join tbl_fasilitas ON tbl_sekolah.npsn = tbl_fasilitas.npsn");
+    $query = $this->db->query("SELECT tbl_guru.mapel,tbl_sekolah.lat,tbl_sekolah.long, tbl_sekolah.npsn,tbl_sekolah.nama_sekolah,tbl_sekolah.alamat, tbl_sekolah.nama_file,tbl_guru.nama,tbl_guru.Sertifikasi,tbl_guru.status_guru, tbl_fasilitas.r_kelas,tbl_fasilitas.r_lab,tbl_fasilitas.r_perpus from tbl_sekolah JOIN tbl_guru on tbl_sekolah.npsn = tbl_guru.npsn join tbl_fasilitas ON tbl_sekolah.npsn = tbl_fasilitas.npsn");
     return $query;
   }
   function status() {
@@ -139,4 +139,29 @@ class Model_user extends CI_Model {
     $query = $this->db->query("SELECT tbl_guru.mapel,tbl_sekolah.lat,tbl_sekolah.long, tbl_sekolah.npsn,tbl_sekolah.nama_sekolah,tbl_sekolah.alamat,tbl_guru.nama,tbl_guru.Sertifikasi,tbl_guru.status_guru, tbl_fasilitas.r_kelas,tbl_fasilitas.r_lab,tbl_fasilitas.r_perpus from tbl_sekolah JOIN tbl_guru on tbl_sekolah.npsn = tbl_guru.npsn join tbl_fasilitas ON tbl_sekolah.npsn = tbl_fasilitas.npsn");
     return $query;
   }
+
+
+
+
+
+  public function permohonan($id_pemohon, $input){
+    $object = array(
+      'nip'             => $input['nip'],
+      'nama'            => $input['nama'],
+      'jk'              => $input['gender'],
+      'tanggal_lahir'   => $input['ttl'],
+      'mapel'           => $input['mapel'],
+      'pendidikan'      => $input['pend'],
+      'status_guru'     => $input['stguru'],
+      // 'asal_sekolah'    => $input['sekolah'],
+      'npsn'            => $input['npsn'],
+      );
+    $this->db->where('id_permohonan', $id_guru);
+    $this->db->update('tbl_permohonan', $object);
+    $this->session->set_flashdata('pesan', '<div class="alert bg-yellow alert-dismissible" role="alert">
+      Data Berhasil di Perbaharui !!! <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">×</span></button></div>');
+  }
+
+
 }

@@ -135,12 +135,6 @@ class User extends CI_Controller {
             $data['judul']      = 'Edit Data User';
             $data['act'] = 4;
 
-        // $dat = array(
-  //               'data' => $this->model_user->user()
-  //           );
-        // $where = array('id' => $id);
-        // $data['hasil'] = $this->model_user->Getdata($where,'tbl_user')->result();
-
             $data['topbar']         = $this->load->view('topbar', $data, true);
             $data['menu']           = $this->load->view('menu', $data, true);
             $data['rightsidebar']   = $this->load->view('rightsidebar', $data, true);

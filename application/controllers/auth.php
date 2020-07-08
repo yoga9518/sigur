@@ -5,21 +5,12 @@ class Auth extends CI_Controller {
 
 	public function index()
 	{
-		$data['judul'] 		= 'SIGUR - Sistem Informasi Guru';
-		$data['act'] = 1;
-		
-		$data['topbar'] 	= $this->load->view('topbar', $data, true);
-		$data['menu']		= $this->load->view('menu', $data, true);
-		$data['rightsidebar']		= $this->load->view('rightsidebar', $data, true);
-		$data['user_info']	= $this->load->view('user_info',$data, true);
-		$data['halaman']	= $this->load->view('halaman/beranda',$data, true);
-		$data['logindropdown'] = $this->load->view('tampilan_menu/logindropdown', $data, true);
-		// $this->load->view('tampilan_admin', $data);
-		$this->load->view('t_beranda', $data);
+		$this->load->view("umum/umum_v");
+
 	}
 	public function cek_login() {
 		$data = array('username' => $this->input->post('username', TRUE),
-                              'password' => md5($this->input->post('password', TRUE))
+			'password' => md5($this->input->post('password', TRUE))
 			);
 		$this->load->model('model_user'); // load model_user
 		$hasil = $this->model_user->cek_user($data);
@@ -38,7 +29,7 @@ class Auth extends CI_Controller {
 			if ($this->session->userdata('status')=='Admin') {
 				redirect('admin/beranda',$sess_data);
 			}
-			elseif ($this->session->userdata('status')=='Operator') {
+			elseif ($this->session->userdata('status')=='Operator'){
 				redirect('sch_adm/beranda');
 			}
 			elseif($this->session->userdata('status')=='Guru'){

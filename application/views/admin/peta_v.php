@@ -51,9 +51,10 @@
                         };
                         L.control.layers(baseMaps, overlayMaps).addTo(map);
 
-                        var data = <?php echo json_encode($marker);?>;
-                        var base_url = "<?php echo base_url('assets/images/');?>";
-                        var redIcon = L.icon({
+                        var data        = <?php echo json_encode($marker);?>;
+                        var base_url    = "<?php echo base_url('assets/images/');?>";
+                        var gambar      = "<?php echo base_url('gambar/') ;?>";
+                        var redIcon     = L.icon({
                             iconUrl: base_url + "marker-red-2x.png",
                             iconSize: [25, 41]
                             });
@@ -106,7 +107,7 @@
                                     </tr>\
                                 </table>\
                                 <div>\
-                                    <img src='<?php echo base_url('gambar/');?>"+nama_file+"' width='100' name='gambar'>\
+                                    <img src='<?php echo base_url('gambar/') ;?>"+nama_file+"' width='100' name='gambar'>\
                                 </div>\
                                 </div>\
                                 <div role='tabpanel' class='tab-pane fade ' id='profile'>\

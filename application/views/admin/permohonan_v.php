@@ -49,9 +49,17 @@
                             </h2>
                             <ul class="header-dropdown m-r--5">
                                 <li class="dropdown">
+                                    <!-- <a href="<?php echo base_url()?>index.php/admin/fasilitas/tambah">
+                                        <button data-toggle="modal" data-target="#add-data"  type="button" class="btn bg-indigo btn-xs waves-effect"><i class="material-icons">add</i></button>
+                                    </a> -->
                                     <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                                         <i class="material-icons">more_vert</i>
                                     </a>
+                                    <ul class="dropdown-menu pull-right">
+                                        <li><a href="javascript:void(0);">Action</a></li>
+                                        <li><a href="javascript:void(0);">Another action</a></li>
+                                        <li><a href="javascript:void(0);">Something else here</a></li>
+                                    </ul>
                                 </li>
                             </ul>
                         </div>
@@ -64,8 +72,9 @@
                                         	<th>NIP</th>
                                         	<th>Nama Guru</th>
                                         	<th>Asal Sekolah</th>
-                                        	<th>Tujuan Sekolah</th>
+                                        	<th>Sekolah Tujuan</th>
                                         	<th>Mapel</th>
+                                        	<th>status</th>
                                         	<th>Aksi</th>
                                         </tr>
                                     </thead>
@@ -80,8 +89,9 @@
     										echo "<td>".$data->asal_sekolah."</td>";
     										echo "<td>".$data->tujuan_sekolah."</td>";
     										echo "<td>".$data->mapel."</td>";
+    										echo "<td>".$data->status."</td>";
 
-    										echo "<td><a href='".site_url("admin/fasilitas/edit/".$data->nip)."'> "
+    										echo "<td><a href='".site_url("admin/permohonan/detail/".$data->id_permohonan)."'> "
     										."<button type='submit' class='btn bg-cyan btn-xs waves-effect' data-type='confirm'><i class='material-icons'>edit</i></button>"
     										."</a>";
     										echo "</tr>";

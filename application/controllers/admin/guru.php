@@ -97,12 +97,6 @@ class Guru extends CI_Controller {
             $data['judul']      = 'Edit Data Guru';
             $data['act'] = 5;
 
-        // $dat = array(
-  //               'data' => $this->model_guru->user()
-  //           );
-        // $where = array('id' => $id);
-        // $data['hasil'] = $this->model_guru->Getdata($where,'tbl_user')->result();
-
             $data['topbar']     = $this->load->view('topbar', $data, true);
             $data['menu']       = $this->load->view('menu', $data, true);
             $data['rightsidebar']       = $this->load->view('rightsidebar', $data, true);
@@ -116,15 +110,12 @@ class Guru extends CI_Controller {
             $this->form_validation->set_rules('mapel','Mata Pelajaran','required');
             $this->form_validation->set_rules('pend','Pendidikan','required');
             $this->form_validation->set_rules('stguru','Status Guru','required');
-            // $this->form_validation->set_rules('sekolah','Asal Sekolah','required');
             $this->form_validation->set_rules('npsn','npsn', 'required');
 
             if ($this->form_validation->run() == TRUE)
             {
-            // $this->load->view('myform');
                 $this->model_guru->edit($id_guru, $this->input->post());
                 redirect('admin/guru', 'refresh');
-                //$this->model_gambar->create();
             }
             $dat = array(
                 'mapel'     => $this->model_guru->mapel(),
@@ -133,10 +124,7 @@ class Guru extends CI_Controller {
                 'sekolah'   => $this->model_guru->sekolah(),
                 'data'      => $this->model_guru->getall($id_guru)->result(),
                 );
-        // $dat['mapel'] = $this->model_guru->mapel();
-        // $dat['data'] = $this->model_guru->getall($id_guru)->result();
             $data['halaman']    = $this->load->view('admin/guru_edit',$dat, true);
-        // $this->load->view('tampilan_admin', $data);
             $this->load->view('t_beranda', $data);
             }		
         }

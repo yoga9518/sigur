@@ -42,9 +42,8 @@ class Model_sekolah extends CI_Model {
 
     $config['upload_path']    = './gambar/';
     $config['allowed_types']  = 'gif|jpg|png';
-    $config['max_size']       = '1024';
-    $config['max_width']      = '1024';
-    $config['max_height']     = '1024';
+    $config['max_width']      = '2024';
+    $config['max_height']     = '2024';
     
     $this->upload->initialize($config);
 
