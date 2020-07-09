@@ -142,12 +142,15 @@ class User extends CI_Controller {
         // $data['hasil'] = $this->model_user->Getdata($where,'tbl_user')->result();
 
 <<<<<<< HEAD
+<<<<<<< HEAD
             $data['topbar']     = $this->load->view('topbar', $data, true);
             $data['menu']       = $this->load->view('menu', $data, true);
             $data['rightsidebar']       = $this->load->view('rightsidebar', $data, true);
             $data['user_info']  = $this->load->view('user_info',$data, true);
             $data['logindropdown'] = $this->load->view('tampilan_menu/logindropdown', $data, true);
 =======
+=======
+>>>>>>> parent of b4c0ba2... permohonan
             $data['topbar']         = $this->load->view('topbar', $data, true);
             $data['menu']           = $this->load->view('menu', $data, true);
             $data['rightsidebar']   = $this->load->view('rightsidebar', $data, true);
