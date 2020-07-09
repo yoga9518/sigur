@@ -42,6 +42,7 @@ class Model_fasilitas extends CI_Model {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   public function detail($id_permohonan, $input){
 
     $object = array(
@@ -72,6 +73,9 @@ class Model_fasilitas extends CI_Model {
 =======
 }
 >>>>>>> parent of 372c63b... 20200708
+=======
+}
+>>>>>>> parent of b4c0ba2... permohonan
 =======
 }
 >>>>>>> parent of b4c0ba2... permohonan

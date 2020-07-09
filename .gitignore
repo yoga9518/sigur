@@ -29,3 +29,9 @@ user_guide_src/cilexer/pycilexer.egg-info/*
 *.sublime-project
 /tests/tests/
 /tests/results/
+application/controllers/admin/permohonan.php
+application/controllers/admin/user.php
+application/models/model_fasilitas.php
+application/models/model_permohonan.php
+application/models/model_user.php
+application/views/admin/detail.php

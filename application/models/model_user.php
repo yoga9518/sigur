@@ -125,6 +125,7 @@ class Model_user extends CI_Model {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   return $query;
 
  /*   $this->db->select('*');
@@ -151,6 +152,8 @@ class Model_user extends CI_Model {
 >>>>>>> parent of b4c0ba2... permohonan
 =======
 >>>>>>> parent of b4c0ba2... permohonan
+=======
+>>>>>>> parent of b4c0ba2... permohonan
     return $query;
 >>>>>>> parent of b4c0ba2... permohonan
   }
@@ -173,6 +176,9 @@ class Model_user extends CI_Model {
   }
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> parent of b4c0ba2... permohonan
+=======
 >>>>>>> parent of b4c0ba2... permohonan
 =======
 >>>>>>> parent of b4c0ba2... permohonan

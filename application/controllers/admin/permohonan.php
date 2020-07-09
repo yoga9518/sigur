@@ -27,9 +27,12 @@ class Permohonan extends CI_Controller {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 
             $data['halaman']        = $this->load->view('admin/permohonan_v', $dat, true);
 =======
+=======
+>>>>>>> parent of b4c0ba2... permohonan
 =======
 >>>>>>> parent of b4c0ba2... permohonan
 =======
@@ -43,6 +46,7 @@ class Permohonan extends CI_Controller {
             echo "<script>alert('Maaf anda tidak berhak mengakses halaman ini');history.go(-1);</script>";
             // redirect("login");
         }
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -81,6 +85,11 @@ class Permohonan extends CI_Controller {
     }
 }
 }
+=======
+	}
+	
+}
+>>>>>>> parent of b4c0ba2... permohonan
 =======
 	}
 	
